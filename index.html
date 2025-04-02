@@ -1,50 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simulador de Créditos</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .hidden { display: none; }
-    #historialTable { margin-top: 20px; border-collapse: collapse; }
-    #historialTable th, #historialTable td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2980b9;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #1c6691;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #resumenCredito, #listadoCuotas {
+      margin: 10px 0;
+      color: #2d3436;
+      line-height: 1.6;
+    }
+
+    #historialTable {
+      width: 100%;
+      margin-top: 15px;
+      border-collapse: collapse;
+    }
+
+    #historialTable th, #historialTable td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      background-color: #fafafa;
+    }
+
+    #historialTable th {
+      background-color: #ecf0f1;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
+
   <h1>Simulador de Créditos</h1>
 
-  <!-- Formulario para simular crédito -->
-  <div id="simuladorCredito">
+  <div class="card" id="simuladorCredito">
     <h2>Simula tu Crédito</h2>
-    <label for="monto">Monto: </label>
-    <input type="number" id="monto" min="10000" placeholder="Monto mínimo $10,000"><br><br>
-    <label for="cuotas">Número de cuotas: </label>
+    <label for="monto">Monto:</label>
+    <input type="number" id="monto" min="10000" placeholder="Monto mínimo $10,000">
+
+    <label for="cuotas">Número de cuotas:</label>
     <select id="cuotas">
       <option value="3">3 cuotas</option>
       <option value="6">6 cuotas</option>
       <option value="12">12 cuotas</option>
       <option value="24">24 cuotas</option>
-    </select><br><br>
+    </select>
+
     <button id="simularBtn">Simular Crédito</button>
   </div>
 
-  <div id="resultadoSimulacion" class="hidden">
+  <div class="card hidden" id="resultadoSimulacion">
     <h2>Resumen del Crédito</h2>
     <p id="resumenCredito"></p>
-    <button id="verDetalleBtn">Ver Detalle de Cuotas</button>
   </div>
 
-  <div id="detalleCuotas" class="hidden">
+  <div class="card hidden" id="detalleCuotas">
     <h2>Detalle de Cuotas</h2>
     <ul id="listadoCuotas"></ul>
-    <button id="volverBtn">Volver</button>
   </div>
 
-  <!-- Consultar historial -->
-  <div id="consultarHistorial">
+  <div class="card" id="consultarHistorial">
     <h2>Consultar Historial de Créditos</h2>
     <button id="historialBtn">Ver Historial</button>
+    <button id="limpiarHistorialBtn">Limpiar Historial</button>
     <table id="historialTable" class="hidden">
       <thead>
         <tr>
