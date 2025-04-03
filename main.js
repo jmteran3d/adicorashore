@@ -12,6 +12,7 @@ const Credito = function (monto, cuotas, montoTotal, valorCuota) {
 
 function actualizarHistorial() {
   localStorage.setItem('historialCreditos', JSON.stringify(historialCreditos));
+  console.table(historialCreditos); // Mostrar historial en la consola
   mostrarHistorial(); // Mostrar historial actualizado
 }
 
@@ -24,6 +25,7 @@ function mostrarResumen(credito) {
     Monto total a pagar: $${credito.montoTotal.toFixed(2)}<br>
     Valor de cada cuota: $${credito.valorCuota.toFixed(2)}
   `;
+  console.log("Resumen del crédito:", credito);
   document.getElementById('resultadoSimulacion').classList.remove('hidden');
 }
 
@@ -35,6 +37,7 @@ function mostrarDetalleCuotas(cuotas, valorCuota) {
     item.textContent = `Cuota ${i}: $${valorCuota.toFixed(2)}`;
     listadoCuotas.appendChild(item);
   }
+  console.log(`Detalle de cuotas: ${cuotas} cuotas de $${valorCuota.toFixed(2)} cada una.`);
   document.getElementById('detalleCuotas').classList.remove('hidden');
 }
 
@@ -53,6 +56,7 @@ function mostrarHistorial() {
       `;
       tbody.appendChild(row);
     });
+    console.table(historialCreditos);
     document.getElementById('historialTable').classList.remove('hidden');
   } else {
     document.getElementById('historialTable').classList.add('hidden');
@@ -75,6 +79,7 @@ document.getElementById('simularBtn').addEventListener('click', () => {
 
     ultimoCredito = new Credito(monto, cuotas, montoTotal, valorCuota);
     historialCreditos.push(ultimoCredito);
+    console.log("Crédito generado:", ultimoCredito);
     actualizarHistorial();
     mostrarResumen(ultimoCredito);
     mostrarDetalleCuotas(cuotas, valorCuota);
@@ -87,6 +92,7 @@ document.getElementById('limpiarHistorialBtn').addEventListener('click', () => {
   if (confirm("¿Estás seguro de eliminar el historial de créditos?")) {
     historialCreditos = [];
     actualizarHistorial();
+    console.log("Historial de créditos eliminado.");
     alert("Historial eliminado con éxito.");
   }
 });
