@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- LINK DE ESTILOS -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Simulador de Créditos</title>
+    <!-- LIBRERIAS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <h1>Simulador Crédito de Consumo</h1>
+
+    <div class="card" id="simuladorCredito">
+      <h2>Adicorabank</h2>
+
+      <label for="idCliente">Número de Identificación (RUT):</label>
+      <input type="text" id="idCliente" placeholder="Ej: 12.345.678-9" />
+
+      <label for="emailCliente">Correo Electrónico:</label>
+      <input type="email" id="emailCliente" placeholder="cliente@correo.com" />
+
+      <label for="monto">Ingresa el monto que necesitas:</label>
+      <input
+        type="number"
+        id="monto"
+        min="10000"
+        placeholder="Monto mínimo $10,000"
+      />
+
+      <label for="cuotas">Elige cantidad de cuotas:</label>
+      <select id="cuotas">
+        <option value="3">3 cuotas</option>
+        <option value="6">6 cuotas</option>
+        <option value="12">12 cuotas</option>
+        <option value="24">24 cuotas</option>
+      </select>
+
+      <button id="simularBtn">Simular Crédito</button>
+      <button id="limpiarDatosBtn">Limpiar Datos</button>
+
+    </div>
+
+    <div class="card hidden" id="resultadoSimulacion">
+      <h2>Resumen del Crédito</h2>
+      <p id="resumenCredito"></p>
+    </div>
+
+    <div class="card hidden" id="detalleCuotas">
+      <h2>Detalle de Cuotas</h2>
+      <ul id="listadoCuotas"></ul>
+    </div>
+
+    <div class="card" id="consultarHistorial">
+      <h2>Consultar Historial de Créditos</h2>
+      <button id="historialBtn">Ver Historial</button>
+      <button id="limpiarHistorialBtn">Limpiar Historial</button>
+      <table id="historialTable" class="hidden">
+        <thead>
+          <tr>
+            <th>Monto</th>
+            <th>Cuotas</th>
+            <th>Monto Total</th>
+            <th>Valor Cuota</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
