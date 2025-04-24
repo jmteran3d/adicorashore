@@ -101,3 +101,40 @@ h2 {
   color: #2c3e50;
   margin-top: 0;
 }
+
+#sidebarInfo {
+  width: 260px;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-left: 3px solid #007acc;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+#sidebarInfo h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #007acc;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.info-box {
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  font-size: 0.95rem;
+}
+
+.info-box img {
+  width: 50px;
+  height: 50px;
+}
