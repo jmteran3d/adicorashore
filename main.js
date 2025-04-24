@@ -104,6 +104,19 @@ function mostrarHistorial() {
   }
 }
 
+setTimeout(() => {
+  fetch('https://api.adviceslip.com/advice')
+    .then(response => response.json())
+    .then(data => {
+      const consejo = data.slip.advice;
+      document.getElementById('consejo').innerText = `"${consejo}"`;
+    })
+    .catch(error => {
+      console.error('Error al obtener consejo:', error);
+      document.getElementById('consejo').innerText = 'No se pudo cargar el consejo. Intenta más tarde.';
+    });
+}, 5000);
+
 // ================= EVENTOS =================
 
 document.getElementById("simularBtn").addEventListener("click", () => {
